@@ -3,6 +3,8 @@ package org.sdoroshenko.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,5 +28,6 @@ public class Conversation {
 
     @OneToMany
     @JoinColumn(name = "conversation_id")
+    @Fetch(value = FetchMode.JOIN)
     private List<Message> messages;
 }
